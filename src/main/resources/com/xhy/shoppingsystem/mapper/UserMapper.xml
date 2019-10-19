@@ -4,7 +4,7 @@
 
 <mapper namespace="com.xhy.shoppingsystem.mapper.UserMapper">
 
-    <select id="queueUserByID" parameterType="java.lang.Integer" resultType="com.xhy.shoppingsystem.pojo.User">
+    <select id="queueUserByID" parameterType="int" resultType="com.xhy.shoppingsystem.pojo.User">
         SELECT * FROM user where user_id = #{id};
     </select>
 </mapper>
