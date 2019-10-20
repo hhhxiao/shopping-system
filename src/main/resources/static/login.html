@@ -26,14 +26,12 @@
                 dataType: "json",
                 data: JSON.stringify({
                     'userId': user_id,
-                    'password': password
+                    'userPassword': password
                 }),
                 success:
                     function (data) {
                         if (data === false) {
                             alert("user name or password is wrong");
-                            //todo:这里有个登录成功的判断
-                            //  window.location.href="/index";
                         } else {
                             window.location.href = "/index";
                         }

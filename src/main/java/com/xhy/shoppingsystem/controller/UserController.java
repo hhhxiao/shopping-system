@@ -29,7 +29,8 @@ public class UserController {
      * 登录服务
      * 成功返回true,把用户添加到session
      * 失败就直接返回false
-     * @param object ajax传来的User对象
+     *
+     * @param object  ajax传来的User对象
      * @param session session
      * @return 返回是否登录成功
      */
@@ -37,13 +38,18 @@ public class UserController {
     @PostMapping("/do_login")
     public Object do_login(@RequestBody User object, HttpSession session) {
         User result = userService.queueUSerByID(object.getUserId());
+        System.out.println("dologin:" + result);
         if (result == null) {
+            System.out.println("login failure");
             return false;
         } else {
+            System.out.println("password:" + result.getUserPassword() + "  " + object.getUserPassword());
             if (result.getUserPassword().equals(object.getUserPassword())) {
+                System.out.println("login success");
                 session.setAttribute("user", result);
                 return true;
             }
+            System.out.println("login failure");
         }
         return false;
     }
