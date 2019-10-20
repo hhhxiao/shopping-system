@@ -30,12 +30,12 @@
                 }),
                 success:
                     function (data) {
-                        if(data === false){
-                          //  alert("user name or password is wrong");
+                        if (data === false) {
+                            alert("user name or password is wrong");
                             //todo:这里有个登录成功的判断
-                            window.location.href="/index";
-                        }else {
-                            window.location.href="/index";
+                            //  window.location.href="/index";
+                        } else {
+                            window.location.href = "/index";
                         }
                         //TODO:展示列表数据
                     }
