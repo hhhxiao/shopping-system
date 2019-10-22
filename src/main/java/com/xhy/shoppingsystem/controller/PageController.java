@@ -23,9 +23,7 @@ public class PageController {
     }
 
     @GetMapping("/index")
-    public String index(HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        if (user == null) return "redirect:/login";
+    public String index() {
         return "index";
     }
 
@@ -33,4 +31,15 @@ public class PageController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/item")
+    public String item() {
+        return "item_info";
+    }
+
+    @GetMapping("/manage")
+    public String manage() {
+        return "manage";
+    }
+
 }

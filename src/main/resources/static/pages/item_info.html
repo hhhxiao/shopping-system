@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+
+    <!--
+        src里面是静态资源 th:href里面是启动springboot后引用的资源
+    -->
+    <meta charset="UTF-8">
+    <title>商城购物</title>
+    <link rel="stylesheet" th:href="@{Semantic/semantic.min.css}" href="../Semantic/semantic.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/item_info.css}" href="../css/item_info.css">
+
+    <script src="../js/jquery-3.3.1.js" th:src="@{/js/jquery-3.3.1.js}"></script>
+    <script src="../Semantic/semantic.min.js" th:src="@{/Semantic/semantic.min.js}"></script>
+    <script src="../js/item_info.js" th:src="@{/js/item_info.js}"></script>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <h1>商城购物</h1>
+    </div>
+    <div class="profile">
+        <button class="ui primary button">交易记录</button>
+        <button class="ui button">退出登录</button>
+    </div>
+</div>
+<div class="ui divider"></div>
+
+<div class="info-content segment">
+    <div class="item-image-div">
+        <img src="../images/steve.jpg" class="item-image" alt="商品图片">
+    </div>
+    <div class="item-info-div segment">
+        <h1 class="ui header">数据结构与算法</h1>
+        <h3 class="ui header red">12.99</h3>
+        <table class="ui definition table">
+            <tbody>
+            <tr>
+                <td class="three wide column">尺寸</td>
+                <td>1" x 2"</td>
+            </tr>
+            <tr>
+                <td>生产厂家(出版社)</td>
+                <td>电子科技大学</td>
+            </tr>
+            <tr>
+                <td>描述信息</td>
+                <td>~</td>
+            </tr>
+            <tr>
+                <td>已卖出</td>
+                <td>188</td>
+            </tr>
+            <tr>
+                <td>剩余</td>
+                <td>12</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="ui selection dropdown">
+            <input type="hidden" name="gender">
+            <i class="dropdown icon"></i>
+            <div class="default text">Gender</div>
+            <div class="menu">
+                <div class="item" data-value="1">Male</div>
+                <div class="item" data-value="0">Female</div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button class="ui button red big">购买</button>
+    </div>
+</div>
+</body>
+</html>

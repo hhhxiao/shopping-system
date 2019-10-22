@@ -1,0 +1,35 @@
+.header{
+    padding: 10px;
+    height: 40px;
+}
+
+.logo{
+    float: left;
+    margin-left: 50px;
+}
+.profile{
+    float: right;
+    margin-right: 50px;
+}
+.info-content{
+    width: 80%;
+    margin: 0 auto;
+}
+.item-image-div{
+    padding: 10px;
+    float: left;
+    height: 500px;
+    /*background-color: #0ea432;*/
+    width: 40%;
+}
+.item-image{
+    width: 80%;
+    height: 80%;
+}
+.item-info-div{
+    padding: 10px;
+    float: right;
+    height: 500px;
+    width: 60%;
+    /*background-color: #0d71bb;*/
+}

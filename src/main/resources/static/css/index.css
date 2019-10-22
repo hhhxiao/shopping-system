@@ -1,0 +1,32 @@
+.header{
+    padding: 10px;
+    height: 40px;
+}
+
+.logo{
+    float: left;
+    margin-left: 50px;
+}
+.profile{
+    float: right;
+    margin-right: 50px;
+}
+
+.item-context{
+    width: 80%;
+    margin: 0 auto;
+}
+.item-search{
+    padding-top: 80px;
+    height: 80px;
+    width: 50%;
+    margin:  0 auto;
+    padding-bottom: 200px;
+}
+
+
+.footer{
+    height: 100px;
+    background-color: gray;
+    margin-top: 30px;
+}

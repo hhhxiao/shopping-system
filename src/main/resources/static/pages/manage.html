@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+
+    <!--
+        src里面是静态资源 th:href里面是启动springboot后引用的资源
+    -->
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" th:href="@{Semantic/semantic.min.css}" href="../Semantic/semantic.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/manage.css}" href="../css/manage.css">
+
+    <script src="../js/jquery-3.3.1.js" th:src="@{/js/jquery-3.3.1.js}"></script>
+    <script src="../Semantic/semantic.min.js" th:src="@{/Semantic/semantic.min.js}"></script>
+    <script src="../js/manage.js" th:src="@{/js/manage.css}"></script>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <h1>商城购物</h1>
+    </div>
+    <div class="profile">
+        <button class="ui primary button">交易记录</button>
+        <button class="ui button">退出登录</button>
+    </div>
+</div>
+<div class="ui divider"></div>
+
+
+<div class="main-content">
+    <button class="ui button">添加商品</button>
+    <button class="ui button">交易记录</button>
+
+    <div class="ui   segment add-item">
+        <div class="ui form">
+            <div class="inline fields">
+                <label>商品信息:</label>
+                <div class="three  wide field">
+                    <input type="text" placeholder="商品名称">
+                </div>
+                <div class="three wide field">
+                    <input type="text" placeholder="生产厂家">
+                </div>
+                <div class="three wide field">
+                    <input type="text" placeholder="定价">
+                </div>
+                <div class="three wide field">
+                    <input type="text" placeholder="库存">
+                </div>
+                <button class=" three wides  ui primary button">提交</button>
+            </div>
+        </div>
+    </div>
+
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>商品编号</th>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>已卖出</th>
+            <th>库存</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>数据结构与算法</td>
+            <td>12.99</td>
+            <td>12</td>
+            <td>123</td>
+            <td>
+                <button class="ui button">管理</button>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>数据结构与算法</td>
+            <td>12.99</td>
+            <td>12</td>
+            <td>123</td>
+            <td>
+                <button class="ui button">管理</button>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>数据结构与算法</td>
+            <td>12.99</td>
+            <td>12</td>
+            <td>123</td>
+            <td>
+                <button class="ui button">管理</button>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>数据结构与算法</td>
+            <td>12.99</td>
+            <td>12</td>
+            <td>123</td>
+            <td>
+                <button class="ui button">管理</button>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>数据结构与算法</td>
+            <td>12.99</td>
+            <td>12</td>
+            <td>123</td>
+            <td>
+                <button class="ui button">管理</button>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>数据结构与算法</td>
+            <td>12.99</td>
+            <td>12</td>
+            <td>123</td>
+            <td>
+                <button class="ui button">管理</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</body>
+</html>

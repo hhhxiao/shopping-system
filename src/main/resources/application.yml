@@ -1,7 +1,7 @@
 spring:
   mvc:
     view:
-      prefix: /
+      prefix: /pages/
       suffix: .html
 
   datasource:

@@ -1,0 +1,17 @@
+.header{
+    padding: 10px;
+    height: 40px;
+}
+
+.logo{
+    float: left;
+    margin-left: 50px;
+}
+.profile{
+    float: right;
+    margin-right: 50px;
+}
+.main-content{
+    width: 80%;
+    margin: 0 auto;
+}

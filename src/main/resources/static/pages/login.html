@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+    <link rel="stylesheet" href="../Semantic/semantic.min.css"/>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script src="../Semantic/semantic.min.js"></script>
+    <script src="../js/login.js"></script>
+</head
+
+>
+<body>
+
+<div class="holder">
+    <div class="context">
+        <div class="ui top attached  tabular menu">
+            <a class="item active" data-tab="first">登录</a>
+            <a class="item" data-tab="second">注册</a>
+        </div>
+        <div class="ui bottom attached tab segment active" data-tab="first">
+            <div class="ui form">
+                <label>邮箱</label>
+                <input type="text" name="xxx" placeholder="E-mail">
+                <label>密码</label>
+                <input type="password" name="xxx" placeholder="password">
+                <label> xxx</label>
+                <button class="ui button fluid" type="submit">登录</button>
+            </div>
+
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="second">
+            <div class="ui form">
+                <label>邮箱</label>
+                <input type="text" name="xxx" placeholder="E-mail">
+                <label>密码</label>
+                <input type="password" name="xxx" placeholder="password">
+                <label>确认密码</label>
+                <input type="password" name="xxx" placeholder="password again">
+                <label>xxx </label>
+                <button class="ui button fluid" type="submit">注册</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('.menu .item')
+        .tab()
+    ;
+</script>
+</body>
+</html>
