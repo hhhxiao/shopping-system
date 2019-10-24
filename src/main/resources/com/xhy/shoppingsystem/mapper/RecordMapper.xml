@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xhy.shoppingsystem.mapper.RecordMapper">
+    <resultMap id="record_result_map" type="com.xhy.shoppingsystem.pojo.SoldRecord">
+
+
+    </resultMap>
+    <!--    用户获取个人交易记录-->
+    <select id="getAllSoldRecord" resultType="soldRecord" parameterType="string">
+        select * from soldrecord where user_email=#{email};
+    </select>
+
+</mapper>

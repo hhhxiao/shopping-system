@@ -4,7 +4,7 @@
 
 <mapper namespace="com.xhy.shoppingsystem.mapper.UserMapper">
     <resultMap id="userResultMap" type="com.xhy.shoppingsystem.pojo.User">
-        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="user_email" property="userName" jdbcType="VARCHAR"/>
         <result column="user_password" property="userPassword" jdbcType="VARCHAR"/>
         <result column="user_type" property="userType" jdbcType="INTEGER"/>
     </resultMap>
@@ -16,16 +16,5 @@
     <insert id="registerPlainUser" >
         insert into user(user_email,user_password,user_type) value(#{email},#{password},0);
     </insert>
-<!--    查询出所有商品，便于在主页显示-->
-    <select id="getAllItem" resultMap="userResultMap" >
-        select * from item;
-    </select>
-<!--    根据商品名字查询商品-->
-    <select id="selectItemsByName" resultType="item" parameterType="string">
-        select * from item where item_name=#{name};
-    </select>
-<!--    用户获取个人交易记录-->
-    <select id="getAllSoldRecord" resultType="soldRecord" parameterType="string">
-        select * from soldrecord where user_email=#{email};
-    </select>
+
 </mapper>

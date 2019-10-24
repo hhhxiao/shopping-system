@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper xmlns="http://mybatis.org/schema/mybatis-mapper">
+    <resultMap id="item_map" type="com.xhy.shoppingsystem.pojo.Item">
+
+    </resultMap>
+    <!--    查询出所有商品，便于在主页显示-->
+    <select id="getAllItem" resultMap="userResultMap" >
+        select * from item;
+    </select>
+    <!--    根据商品名字查询商品-->
+    <select id="selectItemsByName" resultType="item" parameterType="string">
+        select * from item where item_name=#{name};
+    </select>
+</mapper>
