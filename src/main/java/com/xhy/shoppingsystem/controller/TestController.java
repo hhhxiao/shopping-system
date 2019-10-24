@@ -30,7 +30,7 @@ public class TestController {
             Item item = new Item();
             item.setItemId(i);
             item.setItemName("测试商品" + i);
-            item.setManufact("厂家" + i);
+            item.setFactory("厂家" + i);
             item.setPrice(i * 1.0);
             item.setSold(i);
             item.setStock(100 - i);
@@ -48,7 +48,7 @@ public class TestController {
             Item it = new Item();
             it.setItemId(i * 2);
             it.setItemName("测试商品" + i);
-            it.setManufact("厂家" + i);
+            it.setFactory("厂家" + i);
             it.setPrice(i * 1.0);
             it.setSold(i);
             it.setStock(100 - i);

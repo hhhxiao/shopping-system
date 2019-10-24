@@ -3,14 +3,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper xmlns="http://mybatis.org/schema/mybatis-mapper">
     <resultMap id="item_map" type="com.xhy.shoppingsystem.pojo.Item">
-
+        <id column="item_id" property="itemId" javaType="int" jdbcType="int"/>
+        <result column="item_name" property="itemName" javaType="string" jdbcType="VARCHAR"/>
+        <result column="manufact" property="factory" javaType="string" jdbcType="VARCHAR"/>
+        <result column="price" property="price" jdbcType="double" javaType="double"/>
+        <result column="sold" property="sold" javaType="int" jdbcType="int"/>
+        <result column="stock" property="stock" jdbcType="int" javaType="int" />
     </resultMap>
     <!--    查询出所有商品，便于在主页显示-->
-    <select id="getAllItem" resultMap="userResultMap" >
+    <select id="getAllItem" resultMap="item_map" >
         select * from item;
     </select>
     <!--    根据商品名字查询商品-->
-    <select id="selectItemsByName" resultType="item" parameterType="string">
+    <select id="selectItemsByName" resultMap="item_map" parameterType="string">
         select * from item where item_name=#{name};
     </select>
 </mapper>
