@@ -1,27 +1,17 @@
-.header {
+.header{
     padding: 10px;
     height: 40px;
 }
 
-.logo {
+.logo{
     float: left;
     margin-left: 50px;
 }
-
-.profile {
+.profile{
     float: right;
     margin-right: 50px;
 }
-
-.main-content {
+.record-content{
     width: 80%;
     margin: 0 auto;
-}
-
-.stock-modify {
-    width: 60px;
-}
-
-#last-col {
-    width: 60px;
 }

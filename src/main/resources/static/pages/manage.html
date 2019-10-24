@@ -28,10 +28,10 @@
 
 
 <div class="main-content">
-    <button class="ui button">添加商品</button>
+    <button class="ui button" id="add">添加商品</button>
     <button class="ui button">交易记录</button>
-
-    <div class="ui   segment add-item">
+    <button class="ui button" id="delete">编辑物品</button>
+    <div class="ui  segment add-item" id="add-item">
         <div class="ui form">
             <div class="inline fields">
                 <label>商品信息:</label>
@@ -47,10 +47,11 @@
                 <div class="three wide field">
                     <input type="text" placeholder="库存">
                 </div>
-                <button class=" three wides  ui primary button">提交</button>
+                <button  id="item-add-submit" class="  three wides  ui primary button">提交</button>
             </div>
         </div>
     </div>
+
 
     <table class="ui celled table">
         <thead>
@@ -58,72 +59,13 @@
             <th>商品编号</th>
             <th>商品名称</th>
             <th>商品价格</th>
+            <th>生产厂家</th>
             <th>已卖出</th>
             <th>库存</th>
-            <th>操作</th>
+            <th id="last-col"></th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>数据结构与算法</td>
-            <td>12.99</td>
-            <td>12</td>
-            <td>123</td>
-            <td>
-                <button class="ui button">管理</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>数据结构与算法</td>
-            <td>12.99</td>
-            <td>12</td>
-            <td>123</td>
-            <td>
-                <button class="ui button">管理</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>数据结构与算法</td>
-            <td>12.99</td>
-            <td>12</td>
-            <td>123</td>
-            <td>
-                <button class="ui button">管理</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>数据结构与算法</td>
-            <td>12.99</td>
-            <td>12</td>
-            <td>123</td>
-            <td>
-                <button class="ui button">管理</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>数据结构与算法</td>
-            <td>12.99</td>
-            <td>12</td>
-            <td>123</td>
-            <td>
-                <button class="ui button">管理</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>数据结构与算法</td>
-            <td>12.99</td>
-            <td>12</td>
-            <td>123</td>
-            <td>
-                <button class="ui button">管理</button>
-            </td>
-        </tr>
+        <tbody id="table-body">
         </tbody>
     </table>
 
