@@ -1,14 +1,27 @@
 package com.xhy.shoppingsystem.pojo;
 
-import org.omg.PortableInterceptor.INACTIVE;
+import org.apache.ibatis.type.Alias;
 
+@Alias("item")
 public class Item {
     private Integer itemId;
     private String itemName;
-    private String manufact;
+    private String factory;
     private Double price;
     private Integer sold;
     private Integer stock;
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemId=" + itemId +
+                ", itemName='" + itemName + '\'' +
+                ", factory='" + factory + '\'' +
+                ", price=" + price +
+                ", sold=" + sold +
+                ", stock=" + stock +
+                '}';
+    }
 
     public Integer getItemId() {
         return itemId;
@@ -26,12 +39,12 @@ public class Item {
         this.itemName = itemName;
     }
 
-    public String getManufact() {
-        return manufact;
+    public String getFactory() {
+        return factory;
     }
 
-    public void setManufact(String manufact) {
-        this.manufact = manufact;
+    public void setFactory(String factory) {
+        this.factory = factory;
     }
 
     public Double getPrice() {

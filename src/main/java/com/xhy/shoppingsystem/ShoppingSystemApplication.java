@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 public class ShoppingSystemApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(ShoppingSystemApplication.class, args);
     }
 

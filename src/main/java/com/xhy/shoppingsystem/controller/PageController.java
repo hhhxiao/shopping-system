@@ -1,11 +1,7 @@
 package com.xhy.shoppingsystem.controller;
 
-import com.xhy.shoppingsystem.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import javax.jws.soap.SOAPBinding;
-import javax.servlet.http.HttpSession;
 
 /**
  * 页面controller

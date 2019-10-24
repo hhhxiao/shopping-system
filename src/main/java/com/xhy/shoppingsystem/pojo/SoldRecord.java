@@ -1,12 +1,13 @@
 package com.xhy.shoppingsystem.pojo;
 
-import org.omg.PortableInterceptor.INACTIVE;
+import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
 
+@Alias("soldRecord")
 public class SoldRecord {
     private Integer itemId;
-    private Integer userID;
+    private String userEmail;
     private Date soldTime;
     private Integer soldNum;
 
@@ -18,12 +19,12 @@ public class SoldRecord {
         this.itemId = itemId;
     }
 
-    public Integer getUserID() {
-        return userID;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserID(Integer userID) {
-        this.userID = userID;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public Date getSoldTime() {
