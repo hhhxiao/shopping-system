@@ -3,7 +3,7 @@ function item_html(item) {
             <td>${item.itemId}</td>
             <td>${item.itemName}</td>
             <td>${item.price}</td>
-            <td>${item.manufact}</td>
+            <td>${item.factory}</td>
             <td>${item.sold}</td>
             <td>
                 <div class="ui input stock-modify">
@@ -21,7 +21,12 @@ function item_html(item) {
         </tr>`
 }
 
+function isEmpty(obj) {
+    return typeof obj == "undefined" || obj == null || obj.trim() === "";
+}
 
+
+//修改库存
 function stock(id) {
     alert("修改成功");
     $.ajax({
@@ -39,6 +44,7 @@ function stock(id) {
     });
 }
 
+//删除物品（下架）
 function manage(id) {
     alert("删除成功" + id);
     $.ajax({
@@ -56,6 +62,7 @@ function manage(id) {
     });
 }
 
+//添加物品
 $(document).ready(function () {
     let b = true;
     $('#add-item').hide();
@@ -71,13 +78,42 @@ $(document).ready(function () {
         }
     });
 
+    //添加物品
     $('#item-add-submit').click(function () {
         //todo
-        alert('物品已经添加至仓库');
+        const item_name = $('#item-name').val();
+        const item_factory = $('#item-factory').val();
+        const item_price = $('#item-price').val();
+        const item_stock = $('#item-stock').val();
+        if (isEmpty(item_name) || isEmpty(item_factory) || isEmpty(item_price) || isEmpty(item_stock)) {
+            alert("商品信息没有填写完整");
+        } else {
+            $.ajax({
+                url: "/item/add",
+                type: "post",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify({
+                    'itemName': item_name,
+                    'price': item_price,
+                    'factory': item_factory,
+                    'stock': item_stock
+                }),
+                success:
+                    function (data) {
+                        console.log(data);
+                        if (data) {
+                            alert("商品添加成功");
+                        } else {
+                            alert("商品添加失败");
+                        }
+                    }
+            });
+        }
     });
 
     $.ajax({
-        url: "/test/get-item",
+        url: "/item/all",
         type: "get",
         contentType: "application/json",
         success:

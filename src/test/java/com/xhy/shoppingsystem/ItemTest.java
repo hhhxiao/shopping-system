@@ -17,7 +17,7 @@ public class ItemTest {
     private ItemMapper itemMapper;
 
     @Test
-    public void getAllItem(){
+    public void getAllItem() {
         ArrayList<Item> allItem = itemMapper.getAllItem();
         for (Item item : allItem) {
             System.out.println(item);
@@ -25,15 +25,16 @@ public class ItemTest {
     }
 
     @Test
-    public void selectItemsByName(){//
+    public void selectItemsByName() {//
         ArrayList<Item> pens = itemMapper.selectItemsByName("pen");
         for (Item pen : pens) {
             System.out.println(pen);
         }
     }
+
     @Test
-    public void addItem(){
-        Item item=new Item();
+    public void addItem() {
+        Item item = new Item();
         item.setItemName("phone");
         item.setFactory("huaWei");
         item.setPrice(3000.0);

@@ -6,13 +6,13 @@ function gene_card_html(item) {
                     <div class="content">
                         <h5 class="ui red header">${item.price}元</h5>
                         <h5 class="ui header"><a href="/item/${item.itemId}">${item.itemName}</a></h5>
-                        ${item.manufact}</div>
+                        ${item.factory}</div>
                         </div>`;
 }
 
 $(document).ready(function () {
     $.ajax({
-        url: "/test/get-item",
+        url: "/item/all",
         type: "get",
         contentType: "application/json",
         success:
@@ -29,13 +29,9 @@ $(document).ready(function () {
             var name = $('#search').val();
             console.log(name);
             $.ajax({
-                url: "/test/search",
-                type: "post",
+                url: "/item/name/"+name,
+                type: "get",
                 contentType: "application/json",
-                dataType: "json",
-                data: JSON.stringify({
-                    'itemName': name,
-                }),
                 success:
                     function (data) {
                         let html = "";
