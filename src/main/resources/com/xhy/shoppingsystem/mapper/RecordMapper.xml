@@ -4,13 +4,13 @@
 
 <mapper namespace="com.xhy.shoppingsystem.mapper.RecordMapper">
     <resultMap id="record_result_map" type="com.xhy.shoppingsystem.pojo.SoldRecord">
-        <id column="user_email" property="userEmail" javaType="string" jdbcType="VARCHAR"/>
-        <id column="item_id" property="itemId" jdbcType="int" javaType="int"/>
-        <result column="sold_time" property="soldTime" javaType="date" jdbcType="DATE"/>
-        <result column="sold_num" property="soldNum" jdbcType="int" javaType="int"/>
+        <id column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+        <id column="item_id" property="itemId" jdbcType="INTEGER"/>
+        <result column="sold_time" property="soldTime"  jdbcType="DATE"/>
+        <result column="sold_num" property="soldNum" jdbcType="INTEGER"/>
     </resultMap>
     <!--    用户获取个人交易记录-->
-    <select id="getAllSoldRecord" resultMap="record_result_map" parameterType="string">
-        select * from soldrecord where user_email=#{email};
-    </select>
+<!--    <select id="getAllSoldRecord" resultMap="record_result_map" parameterType="string">-->
+<!--        select * from soldrecord where user_email=#{email};-->
+<!--    </select>-->
 </mapper>

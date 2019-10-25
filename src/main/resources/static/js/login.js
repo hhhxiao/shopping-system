@@ -21,7 +21,12 @@ $(document).ready(function () {
                 }),
                 success:
                     function (data) {
-
+                        console.log(data);
+                        if (data.status === "failure") {
+                            alert("用户名或密码错误");
+                        } else {
+                            window.location.href = data.type;
+                        }
                     }
             });
         }
@@ -36,7 +41,26 @@ $(document).ready(function () {
         } else if (password_a !== password) {
             alert("两次输入的密码不一致!");
         } else {
-            alert("注册成功");
+            $.ajax({
+                url: "/do_register",
+                type: "post",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify({
+                    'userEmail': email,
+                    'userPassword': password
+                }),
+                success:
+                    function (data) {
+                        console.log(data);
+                        if(data){
+                            alert("注册成功,即将前往登录页面");
+                            window.location.href = "/login";
+                        }else {
+                            alert("注册失败");
+                        }
+                    }
+            });
         }
     });
 });

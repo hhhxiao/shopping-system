@@ -16,16 +16,16 @@ import java.util.ArrayList;
 public class ItemServiceImpl implements ItemService{
 
     Logger logger = LoggerFactory.getLogger(ItemServiceImpl.class);
-    @Autowired
-    private ItemMapper itemMapper;
-
-    @Override
-    public ArrayList<Item> getAllItem() {
-        return itemMapper.getAllItem();
-    }
-
-    @Override
-    public ArrayList<Item> selectItemsByName(String name) {
-        return itemMapper.selectItemsByName(name);
-    }
+   // @Autowired
+   // private ItemMapper itemMapper;
+//
+//    @Override
+//    public ArrayList<Item> getAllItem() {
+//        return itemMapper.getAllItem();
+//    }
+//
+//    @Override
+//    public ArrayList<Item> selectItemsByName(String name) {
+//        return itemMapper.selectItemsByName(name);
+//    }
 }

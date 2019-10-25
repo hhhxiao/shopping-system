@@ -2,6 +2,7 @@ package com.xhy.shoppingsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -10,10 +11,10 @@ import javax.sql.DataSource;
 
 @EnableTransactionManagement
 @SpringBootApplication
+//@ServletComponentScan
 public class ShoppingSystemApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(ShoppingSystemApplication.class, args);
     }
 

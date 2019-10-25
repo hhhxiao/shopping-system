@@ -17,16 +17,22 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-
     @Override
-    public User selectUserByEmailAndPassword(String email, String password) {
-        return userMapper.selectUserByEmailAndPassword(email,password);
+    public User login(User user) {
+        return userMapper.selectUserByEmail(user.getUserEmail());
     }
 
     @Override
-    public void registerPlainUser(String email, String password) {
-        userMapper.registerPlainUser(email,password);
+    public boolean register(User user) {
+        //用户存在就注册失败
+        User u = userMapper.selectUserByEmail(user.getUserEmail());
+        if (u == null) {
+            user.setUserType(1);
+            //用户不存在表示注册成功(这里默认主键不重复的时候就插入成功了,其实不应该这么写)
+            userMapper.addUser(user);
+            return true;
+        }
+        return false;
     }
-
 
 }

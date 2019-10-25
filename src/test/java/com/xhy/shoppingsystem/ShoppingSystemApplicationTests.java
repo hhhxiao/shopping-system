@@ -11,14 +11,4 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ShoppingSystemApplicationTests {
-
-
-    @Autowired
-    UserService userService;
-
-    @Test
-    public void contextLoads() {
-        userService.registerPlainUser("test@qq.com","121313");
-    }
-
 }

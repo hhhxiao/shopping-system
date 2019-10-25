@@ -10,5 +10,5 @@ import java.util.ArrayList;
 @Mapper
 @Repository
 public interface RecordMapper {
-    ArrayList<SoldRecord> getAllSoldRecord(String email);//获取所有交易
+    //   ArrayList<SoldRecord> getAllSoldRecord(String email);//获取所有交易
 }
