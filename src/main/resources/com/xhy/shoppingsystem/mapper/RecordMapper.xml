@@ -11,10 +11,13 @@
     </resultMap>
     <!--    用户获取个人交易记录-->
     <select id="getAllPersonalSoldRecord" resultMap="record_result_map" parameterType="com.xhy.shoppingsystem.pojo.SoldRecord">
-        select * from soldrecord where user_email=#{userEmail};
+        select * from sold_record where user_email=#{userEmail};
     </select>
 <!--    管理员获取交易记录-->
     <select id="getAllSoldRecord" resultMap="record_result_map" >
-        select * from soldrecord;
+        select * from sold_record;
     </select>
+    <insert id="addSoldRecord" parameterType="com.xhy.shoppingsystem.pojo.SoldRecord">
+        insert into sold_record (user_email,item_id,sold_time,sold_num) value (#{userEmail},#{itemId},#{soldTime},#{soldNum});
+    </insert>
 </mapper>

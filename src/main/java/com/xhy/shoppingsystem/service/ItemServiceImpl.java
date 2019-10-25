@@ -34,5 +34,15 @@ public class ItemServiceImpl implements ItemService{
         return itemMapper.addItem(item);
     }
 
+    @Override
+    public Item selectItemById(Integer id) {
+        return itemMapper.selectItemById(id);
+    }
+
+    @Override
+    public boolean deleteItemById(Integer id) {
+        return itemMapper.deleteItemById(id);
+    }
+
 
 }

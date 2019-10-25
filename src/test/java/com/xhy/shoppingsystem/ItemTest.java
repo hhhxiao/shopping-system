@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.crypto.interfaces.PBEKey;
 import java.util.ArrayList;
 
 @RunWith(SpringRunner.class)
@@ -25,7 +26,7 @@ public class ItemTest {
     }
 
     @Test
-    public void selectItemsByName(){//
+    public void selectItemsByName(){
         ArrayList<Item> pens = itemMapper.selectItemsByName("pen");
         for (Item pen : pens) {
             System.out.println(pen);
@@ -40,4 +41,15 @@ public class ItemTest {
         item.setStock(50);
         System.out.println(itemMapper.addItem(item));
     }
+    @Test
+    public void deleteItemById(){
+        System.out.println(itemMapper.deleteItemById(1));
+    }
+
+    @Test
+    public void selectItemById(){
+        Item item = itemMapper.selectItemById(5);
+        System.out.println(item);
+    }
+
 }
