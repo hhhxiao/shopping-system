@@ -42,4 +42,14 @@ public class SoldRecord {
     public void setSoldNum(Integer soldNum) {
         this.soldNum = soldNum;
     }
+
+    @Override
+    public String toString() {
+        return "SoldRecord{" +
+                "itemId=" + itemId +
+                ", userEmail='" + userEmail + '\'' +
+                ", soldTime=" + soldTime +
+                ", soldNum=" + soldNum +
+                '}';
+    }
 }

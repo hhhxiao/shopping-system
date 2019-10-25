@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 
 public interface ItemService {
-   // ArrayList<Item> getAllItem();//获取所有库存商品
-    //ArrayList<Item> selectItemsByName(String name);//搜索商品
+    ArrayList<Item> getAllItem();//获取所有库存商品
+    ArrayList<Item> selectItemsByName(String name);//搜索商品
+    boolean addItem(Item item);//管理员增加商品
 }

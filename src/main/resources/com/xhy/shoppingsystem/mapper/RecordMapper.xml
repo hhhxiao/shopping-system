@@ -10,7 +10,11 @@
         <result column="sold_num" property="soldNum" jdbcType="INTEGER"/>
     </resultMap>
     <!--    用户获取个人交易记录-->
-<!--    <select id="getAllSoldRecord" resultMap="record_result_map" parameterType="string">-->
-<!--        select * from soldrecord where user_email=#{email};-->
-<!--    </select>-->
+    <select id="getAllPersonalSoldRecord" resultMap="record_result_map" parameterType="com.xhy.shoppingsystem.pojo.SoldRecord">
+        select * from soldrecord where user_email=#{userEmail};
+    </select>
+<!--    管理员获取交易记录-->
+    <select id="getAllSoldRecord" resultMap="record_result_map" >
+        select * from soldrecord;
+    </select>
 </mapper>

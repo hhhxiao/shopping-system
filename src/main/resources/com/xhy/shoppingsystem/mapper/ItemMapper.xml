@@ -11,4 +11,16 @@
         <result column="sold" property="sold"  jdbcType="INTEGER"/>
         <result column="stock" property="stock"  jdbcType="INTEGER" />
     </resultMap>
+
+    <select id="getAllItem" resultMap="itemMap" >
+        select * from item;
+    </select>
+
+    <select id="selectItemsByName" resultMap="itemMap" parameterType="string">
+        select * from item where item_name=#{name};
+    </select>
+
+    <insert id="addItem" parameterType="com.xhy.shoppingsystem.pojo.Item">
+        insert into item (item_name,manufact,price,sold,stock) value (#{itemName},#{factory},#{price},0,#{stock});
+    </insert>
 </mapper>

@@ -8,5 +8,6 @@ import java.util.ArrayList;
 
 
 public interface RecordService {
-   // ArrayList<SoldRecord> getAllSoldRecord(String email);//获取所有交易
+    ArrayList<SoldRecord> getAllPersonalSoldRecord(String email);//获取所有交易
+    ArrayList<SoldRecord> getAllSoldRecord();//管理员获取所有交易记录
 }

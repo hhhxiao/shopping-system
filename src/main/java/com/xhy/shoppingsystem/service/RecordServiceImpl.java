@@ -19,9 +19,14 @@ public class RecordServiceImpl implements RecordService{
     @Autowired
     private RecordMapper recordMapper;
 
-//    @Override
-//    public ArrayList<SoldRecord> getAllSoldRecord(String email) {
-//        return recordMapper.getAllSoldRecord(email);
-//    }
+    @Override
+    public ArrayList<SoldRecord> getAllPersonalSoldRecord(String email) {
+        return recordMapper.getAllPersonalSoldRecord(email);
+    }
+
+    @Override
+    public ArrayList<SoldRecord> getAllSoldRecord() {
+        return recordMapper.getAllSoldRecord();
+    }
 
 }
