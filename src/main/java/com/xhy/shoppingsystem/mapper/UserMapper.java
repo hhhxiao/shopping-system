@@ -10,5 +10,4 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
     User selectUserByEmailAndPassword(@Param("email") String email,@Param("password") String password);//查询
     void registerPlainUser(@Param("email") String email,@Param("password") String password);//注册
-
 }

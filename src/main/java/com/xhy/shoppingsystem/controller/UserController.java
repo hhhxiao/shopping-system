@@ -63,9 +63,4 @@ public class UserController {
         userService.registerPlainUser(userEmail,userPassword);
         return "redirect:/login";
     }
-
-    /**
-     *
-     *
-     */
 }
