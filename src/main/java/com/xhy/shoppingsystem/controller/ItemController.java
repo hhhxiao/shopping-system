@@ -1,5 +1,7 @@
 package com.xhy.shoppingsystem.controller;
 
+import com.sun.media.jfxmedia.control.MediaPlayerOverlay;
+import com.xhy.shoppingsystem.mapper.ItemMapper;
 import com.xhy.shoppingsystem.pojo.Item;
 import com.xhy.shoppingsystem.service.ItemService;
 import org.slf4j.Logger;
@@ -24,24 +26,38 @@ public class ItemController {
 
     @ResponseBody
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    ArrayList<Item> getAllItems(){
-        return  itemService.getAllItem();
+    ArrayList<Item> getAllItems() {
+        return itemService.getAllItem();
     }
 
 
     @ResponseBody
-    @GetMapping(value = "/name/{name}",produces = MediaType.APPLICATION_JSON_VALUE)
-    ArrayList<Item> getItemByName(@PathVariable String name){
+    @GetMapping(value = "/name/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    ArrayList<Item> getItemByName(@PathVariable String name) {
         return itemService.selectItemsByName(name);
     }
 
     @ResponseBody
     @PostMapping(value = "/add")
-    boolean addItem(@RequestBody Item item){
+    boolean addItem(@RequestBody Item item) {
         item.setSold(0);
-        System.out.println(item+"  add to db");
+        System.out.println(item + "  add to db");
         return itemService.addItem(item);
     }
+
+    @ResponseBody
+    @GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    Item getItemById(@PathVariable Integer id) {
+        return itemService.selectItemById(id);
+    }
+
+
+    @ResponseBody
+    @PostMapping(value = "/delete")
+    boolean deleteById(@RequestBody Item item) {
+        return itemService.deleteItemById(item.getItemId());
+    }
+
 
 
     /**

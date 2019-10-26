@@ -20,7 +20,7 @@
         <h1>商城购物</h1>
     </div>
     <div class="profile">
-        <button class="ui primary button">交易记录</button>
+        <button class="ui primary  button">交易记录</button>
         <button class="ui button">退出登录</button>
     </div>
 </div>
@@ -58,17 +58,31 @@
             </tbody>
         </table>
         <div class="ui selection dropdown">
-            <input type="hidden" name="gender">
+            <input type="hidden" name="p">
             <i class="dropdown icon"></i>
-            <div class="default text">Gender</div>
+            <div class="default text">选择省份</div>
             <div class="menu">
-                <div class="item" data-value="1">Male</div>
-                <div class="item" data-value="0">Female</div>
+                <div class="item" data-value="1">四川省</div>
+                <div class="item" data-value="0">北京市</div>
+                <div class="item" data-value="0">上海市</div>
+                <div class="item" data-value="0">...</div>
             </div>
+        </div>
+        <div class="ui selection dropdown">
+            <input type="hidden" name="city">
+            <i class="dropdown icon"></i>
+            <div class="default text">选择城市</div>
+            <div class="menu">
+                <div class="item" data-value="1">成都市</div>
+                <div class="item" data-value="0">...</div>
+            </div>
+        </div>
+        <div class=" ui input">
+            <input id="count" placeholder="购买数量">
         </div>
         <br>
         <br>
-        <button class="ui button red big">购买</button>
+            <button class="ui orange labeled icon button"><i class="cart icon"></i>购买</button>
     </div>
 </div>
 </body>
