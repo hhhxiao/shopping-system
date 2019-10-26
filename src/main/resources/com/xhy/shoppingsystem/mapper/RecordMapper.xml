@@ -4,8 +4,9 @@
 
 <mapper namespace="com.xhy.shoppingsystem.mapper.RecordMapper">
     <resultMap id="record_result_map" type="com.xhy.shoppingsystem.pojo.SoldRecord">
-        <id column="user_email" property="userEmail" jdbcType="VARCHAR"/>
-        <id column="item_id" property="itemId" jdbcType="INTEGER"/>
+        <id column="sold_id" property="soldId" jdbcType="INTEGER"/>
+        <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+        <result column="item_id" property="itemId" jdbcType="INTEGER"/>
         <result column="sold_time" property="soldTime"  jdbcType="DATE"/>
         <result column="sold_num" property="soldNum" jdbcType="INTEGER"/>
     </resultMap>

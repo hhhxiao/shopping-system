@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Alias("soldRecord")
 public class SoldRecord {
+    private int soldId;
     private Integer itemId;
     private String userEmail;
     private Date soldTime;

@@ -60,5 +60,6 @@ public class ItemTest {
         item.setItemId(2);
         item.setStock(100);
         itemMapper.updateItemsInRepository(item);
+
     }
 }
