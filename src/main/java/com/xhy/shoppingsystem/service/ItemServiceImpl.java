@@ -44,5 +44,10 @@ public class ItemServiceImpl implements ItemService{
         return itemMapper.deleteItemById(id);
     }
 
+    @Override
+    public void updateItemsInRepository(Item item) {
+        itemMapper.updateItemsInRepository(item);
+    }
+
 
 }

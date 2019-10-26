@@ -28,10 +28,6 @@ public class PageController {
         return "login";
     }
 
-    @GetMapping("/item")
-    public String item() {
-        return "item_info";
-    }
 
     @GetMapping("/manage")
     public String manage() {

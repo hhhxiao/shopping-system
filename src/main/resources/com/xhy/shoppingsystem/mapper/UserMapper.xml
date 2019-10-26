@@ -17,13 +17,4 @@
         user(user_email, user_password, user_type)
          values( #{userEmail},#{userPassword},#{userType})
     </select>
-    <!--&lt;!&ndash;    验证登录&ndash;&gt;-->
-    <!--    <select id="queryAllUserByNameAndPassword" resultMap="userResultMap" >-->
-    <!--        select * from user where user_email=#{email} and user_password=#{password};-->
-    <!--    </select>-->
-    <!--&lt;!&ndash;    注册用户,默认类型为普通用户，类型为0&ndash;&gt;-->
-    <!--    <insert id="registerPlainUser" >-->
-    <!--        insert into user(user_email,user_password,user_type) value(#{email},#{password},0);-->
-    <!--    </insert>-->
-
 </mapper>

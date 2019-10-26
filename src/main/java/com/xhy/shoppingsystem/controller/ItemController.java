@@ -5,21 +5,44 @@ import com.xhy.shoppingsystem.service.ItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 @Controller
+@RequestMapping("/item")
 public class ItemController {
 
-   // @Autowired
-    //private ItemService itemService;
+    @Autowired
+    private ItemService itemService;
     Logger logger = LoggerFactory.getLogger(ItemController.class);
+
+
+    @ResponseBody
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    ArrayList<Item> getAllItems(){
+        return  itemService.getAllItem();
+    }
+
+
+    @ResponseBody
+    @GetMapping(value = "/name/{name}",produces = MediaType.APPLICATION_JSON_VALUE)
+    ArrayList<Item> getItemByName(@PathVariable String name){
+        return itemService.selectItemsByName(name);
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/add")
+    boolean addItem(@RequestBody Item item){
+        item.setSold(0);
+        System.out.println(item+"  add to db");
+        return itemService.addItem(item);
+    }
+
 
     /**
      * 此控制用于点击登录按钮后与index的中间转化层

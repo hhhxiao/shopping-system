@@ -27,7 +27,12 @@
     <select id="selectItemById" resultMap="itemMap" parameterType="int">
         select * from item where item_id=#{id};
     </select>
+
     <delete id="deleteItemById" parameterType="int">
         delete from item where item_id=#{id};
     </delete>
+
+    <update id="updateItemsInRepository" parameterType="com.xhy.shoppingsystem.pojo.Item">
+        update item set stock=#{stock} where item_id=#{itemId}
+    </update>
 </mapper>
