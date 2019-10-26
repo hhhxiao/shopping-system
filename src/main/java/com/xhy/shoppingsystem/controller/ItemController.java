@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
@@ -45,9 +46,14 @@ public class ItemController {
         return itemService.addItem(item);
     }
 
+
+
+
     @ResponseBody
-    @GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    Item getItemById(@PathVariable Integer id) {
+    @GetMapping("/get")
+    Item getItem(HttpSession session) {
+        //取得 session里面的id，查询数据然后返回
+        Integer id = (Integer) session.getAttribute("id");
         return itemService.selectItemById(id);
     }
 
@@ -57,7 +63,6 @@ public class ItemController {
     boolean deleteById(@RequestBody Item item) {
         return itemService.deleteItemById(item.getItemId());
     }
-
 
 
     /**

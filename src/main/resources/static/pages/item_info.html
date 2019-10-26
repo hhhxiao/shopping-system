@@ -6,7 +6,7 @@
         src里面是静态资源 th:href里面是启动springboot后引用的资源
     -->
     <meta charset="UTF-8">
-    <title>商城购物</title>
+    <title>商品详情</title>
     <link rel="stylesheet" th:href="@{Semantic/semantic.min.css}" href="../Semantic/semantic.min.css"/>
     <link rel="stylesheet" th:href="@{/css/item_info.css}" href="../css/item_info.css">
 
@@ -31,17 +31,19 @@
         <img src="../images/steve.jpg" class="item-image" alt="商品图片">
     </div>
     <div class="item-info-div segment">
-        <h1 class="ui header">数据结构与算法</h1>
-        <h3 class="ui header red">12.99</h3>
+        <!--名字-->
+        <h1 id="item-name" class="ui header"></h1>
+        <!--价格-->
+        <h3 class="ui header red" id="item-price"></h3>
         <table class="ui definition table">
             <tbody>
             <tr>
                 <td class="three wide column">尺寸</td>
-                <td>1" x 2"</td>
+                <td>Unknown</td>
             </tr>
             <tr>
                 <td>生产厂家(出版社)</td>
-                <td>电子科技大学</td>
+                <td id="item-factory"></td>
             </tr>
             <tr>
                 <td>描述信息</td>
@@ -49,11 +51,11 @@
             </tr>
             <tr>
                 <td>已卖出</td>
-                <td>188</td>
+                <td id="item-sold">188</td>
             </tr>
             <tr>
                 <td>剩余</td>
-                <td>12</td>
+                <td id="item-stock">12</td>
             </tr>
             </tbody>
         </table>
@@ -82,7 +84,7 @@
         </div>
         <br>
         <br>
-            <button class="ui orange labeled icon button"><i class="cart icon"></i>购买</button>
+        <button id="buy" class="ui orange labeled icon button"><i class="cart icon"></i>购买</button>
     </div>
 </div>
 </body>

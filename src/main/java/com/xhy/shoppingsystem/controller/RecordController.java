@@ -21,16 +21,4 @@ public class RecordController {
   //  private RecordService recordService;
     Logger logger = LoggerFactory.getLogger(RecordController.class);
 
-    /**
-     * 查询交易记录（登录条件下）
-     * @param request 请求
-     */
-//    @GetMapping("/record")
-//    public String record(HttpServletRequest request){
-//        HttpSession session = request.getSession();
-//        User user = (User)session.getAttribute("user");
-//        ArrayList<SoldRecord> allSoldRecord = recordService.getAllSoldRecord(user.getUserEmail());
-//        session.setAttribute("allSoldRecord",allSoldRecord);
-//        return "redirect:/item";
-//    }
 }

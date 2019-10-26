@@ -5,7 +5,7 @@ function gene_card_html(item) {
                 </div>
                     <div class="content">
                         <h5 class="ui red header">${item.price}元</h5>
-                        <h5 class="ui header"><a href="/item/${item.itemId}">${item.itemName}</a></h5>
+                        <h5 class="ui header"><a href="/id/${item.itemId}">${item.itemName}</a></h5>
                         ${item.factory}</div>
                         </div>`;
 }
@@ -29,7 +29,7 @@ $(document).ready(function () {
             var name = $('#search').val();
             console.log(name);
             $.ajax({
-                url: "/item/name/"+name,
+                url: "/item/name/" + name,
                 type: "get",
                 contentType: "application/json",
                 success:

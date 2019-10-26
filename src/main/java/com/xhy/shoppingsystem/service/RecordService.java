@@ -13,3 +13,5 @@ public interface RecordService {
     ArrayList<SoldRecord> getAllSoldRecord();//管理员获取所有交易记录
     void addSoldRecord(SoldRecord soldRecord);//购买商品，增加商品记录
 }
+
+
