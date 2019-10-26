@@ -53,4 +53,12 @@ public class ItemTest {
         Item item = itemMapper.selectItemById(5);
         System.out.println(item);
     }
+
+    @Test
+    public void updateItemsInRepository(){
+        Item item=new Item();
+        item.setItemId(2);
+        item.setStock(100);
+        itemMapper.updateItemsInRepository(item);
+    }
 }
