@@ -1,6 +1,11 @@
 package com.xhy.shoppingsystem.controller;
 
+import com.sun.prism.impl.Disposer;
+import com.xhy.shoppingsystem.pojo.Item;
+import com.xhy.shoppingsystem.pojo.SoldRecord;
 import com.xhy.shoppingsystem.pojo.User;
+import com.xhy.shoppingsystem.service.ItemService;
+import com.xhy.shoppingsystem.service.RecordService;
 import com.xhy.shoppingsystem.service.UserService;
 import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.slf4j.Logger;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +27,11 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ItemService itemService;
+    @Autowired
+    private RecordService recordService;
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
 
@@ -58,38 +69,27 @@ public class UserController {
         return userService.register(user);
     }
 
-//    @PostMapping("/do_login")//登录表单提交地址
-//    public String do_login(@RequestBody User object, HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        User user = (User)session.getAttribute("user");
-//        if(user!=null){
-//            System.out.println("login success");
-//            return "redirect:/index";
-//        }
-//        User result = userService.selectUserByEmailAndPassword(object.getUserEmail(),object.getUserPassword());
-//        System.out.println("do_login:" + result);
-//        if (result == null) {
-//            System.out.println("login failure");
-//            return "redirect:/login";
-//        } else {
-//            System.out.println("login success");
-//            session.setAttribute("user",result);
-//            System.out.println("login failure");
-//            return "redirect:/index";
-//        }
-//    }
-//
-//    /**
-//     * 注册（两次密码不同，需要在前端验证，到这意味着两次输入的密码一致）
-//     * @param object 注册的用户对象
-//     *
-//     *
-//     */
-//    @PostMapping("/do_register")//注册表单提交地址
-//    public String do_register(@RequestBody User object){
-//        String userEmail = object.getUserEmail();
-//        String userPassword = object.getUserPassword();
-//        userService.registerPlainUser(userEmail,userPassword);
-//        return "redirect:/login";
-//    }
+    @ResponseBody
+    @PostMapping("/buy")
+    public boolean buy(@RequestBody SoldRecord record,HttpSession session) {
+        Item item = itemService.selectItemById(record.getItemId());
+        //if the stock < nums to by
+        System.out.println("a buy request");
+        int currentStock = item.getStock();
+        if (currentStock < record.getSoldNum()) {
+            System.out.println("less stock");
+            return false;
+        } else {
+
+            item.setStock(currentStock - record.getSoldNum());
+            item.setSold(item.getSold()+record.getSoldNum());
+            itemService.updateItemsInRepository(item);
+            User user = (User) session.getAttribute("user");
+            record.setUserEmail("test@qq.com");
+            record.setSoldTime(new Date());
+            recordService.addSoldRecord(record);
+            System.out.println("success to by");
+            return true;
+        }
+    }
 }

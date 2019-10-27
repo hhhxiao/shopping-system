@@ -33,11 +33,7 @@ public class PageController {
 
     //请求页面
     @GetMapping("/id/{id}")
-    String item_info(@PathVariable Integer id, HttpSession session) {
-        //把id信息暂存到session里面
-        //请求数据的时候去查询
-        //避免一次查询
-        session.setAttribute("id", id);
+    String item_info(@PathVariable Integer id) {
         return "item_info";
     }
 
