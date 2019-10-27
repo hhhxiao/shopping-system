@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 
 @Alias("soldRecord")
 public class SoldRecord {
-    private int soldId;
+    private Integer soldId;
     private Integer itemId;
     private String userEmail;
     private Timestamp soldTime;
@@ -50,7 +50,8 @@ public class SoldRecord {
     @Override
     public String toString() {
         return "SoldRecord{" +
-                "itemId=" + itemId +
+                "soldId=" + soldId +
+                ", itemId=" + itemId +
                 ", userEmail='" + userEmail + '\'' +
                 ", soldTime=" + soldTime +
                 ", soldNum=" + soldNum +

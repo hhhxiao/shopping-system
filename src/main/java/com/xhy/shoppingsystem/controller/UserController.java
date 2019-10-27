@@ -7,19 +7,18 @@ import com.xhy.shoppingsystem.pojo.User;
 import com.xhy.shoppingsystem.service.ItemService;
 import com.xhy.shoppingsystem.service.RecordService;
 import com.xhy.shoppingsystem.service.UserService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class UserController {
@@ -46,7 +45,7 @@ public class UserController {
         User u = userService.login(user);
         HashMap<String, String> resultMap = new HashMap<>();
         if (u != null && u.getUserPassword().equals(user.getUserPassword())) {
-            session.setAttribute("user",user);
+            session.setAttribute("user", u);
             resultMap.put("status", "success");
             resultMap.put("type", u.getUserType() == 0 ? "/manage" : "/index");
         } else {
@@ -57,7 +56,7 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session){
+    public String logout(HttpSession session) {
         session.removeAttribute("user");
         return "redirect:/login";
     }
@@ -76,7 +75,7 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/buy")
-    public boolean buy(@RequestBody SoldRecord record,HttpSession session) {
+    public boolean buy(@RequestBody SoldRecord record, HttpSession session) {
         Item item = itemService.selectItemById(record.getItemId());
         //if the stock < nums to by
         System.out.println("a buy request");
@@ -87,8 +86,9 @@ public class UserController {
         } else {
 
             item.setStock(currentStock - record.getSoldNum());
-            item.setSold(item.getSold()+record.getSoldNum());
+            item.setSold(item.getSold() + record.getSoldNum());
             itemService.updateItemsInRepository(item);
+            itemService.updateItemSold(item);
             User user = (User) session.getAttribute("user");
             record.setUserEmail("test@qq.com");
             record.setSoldTime(new Timestamp(System.currentTimeMillis()));

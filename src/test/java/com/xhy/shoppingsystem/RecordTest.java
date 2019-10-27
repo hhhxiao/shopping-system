@@ -39,7 +39,7 @@ public class RecordTest {
     @Test
     public void addSoldRecord(){
         SoldRecord soldRecord=new SoldRecord();
-        soldRecord.setItemId(1);
+        soldRecord.setItemId(0);
         soldRecord.setSoldNum(3);
         soldRecord.setSoldTime(new Timestamp(System.currentTimeMillis()));
         soldRecord.setUserEmail("xhy@789");

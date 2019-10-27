@@ -34,9 +34,11 @@ public class RecordController {
     @GetMapping(value = "/get-record", produces = MediaType.APPLICATION_JSON_VALUE)
     ArrayList<SoldRecord> getRecordByEmail(HttpSession session) {
         User user = (User) session.getAttribute("user");
-        System.out.println(user);
+        System.out.println("/get=record:---" + user);
         if (user == null) return null;
         else if (user.getUserType() == 0) {
+            ArrayList<SoldRecord> records = recordService.getAllSoldRecord();
+            System.out.println(records);
             return recordService.getAllSoldRecord();
         } else {
             return recordService.getAllPersonalSoldRecord(user.getUserEmail());
