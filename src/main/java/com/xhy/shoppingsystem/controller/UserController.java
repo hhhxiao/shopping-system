@@ -12,10 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -48,6 +45,7 @@ public class UserController {
         User u = userService.login(user);
         HashMap<String, String> resultMap = new HashMap<>();
         if (u != null && u.getUserPassword().equals(user.getUserPassword())) {
+            session.setAttribute("user",user);
             resultMap.put("status", "success");
             resultMap.put("type", u.getUserType() == 0 ? "/manage" : "/index");
         } else {
@@ -55,6 +53,12 @@ public class UserController {
             resultMap.put("type", "null");
         }
         return resultMap;
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("user");
+        return "redirect:/login";
     }
 
     /**
@@ -92,4 +96,5 @@ public class UserController {
             return true;
         }
     }
+
 }

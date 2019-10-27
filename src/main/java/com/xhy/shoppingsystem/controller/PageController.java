@@ -41,5 +41,9 @@ public class PageController {
     public String manage() {
         return "manage";
     }
+    @GetMapping("/record")
+    public String record(){
+        return "record";
+    }
 
 }
