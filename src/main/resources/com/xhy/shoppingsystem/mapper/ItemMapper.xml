@@ -33,6 +33,10 @@
     </delete>
 
     <update id="updateItemsInRepository" parameterType="com.xhy.shoppingsystem.pojo.Item">
-        update item set stock=#{stock} where item_id=#{itemId}
+        update item set stock=#{stock} where item_id=#{itemId};
+    </update>
+
+    <update id="updateItemSold" parameterType="com.xhy.shoppingsystem.pojo.Item">
+        update item set sold=#{sold} where item_id=#{itemId};
     </update>
 </mapper>

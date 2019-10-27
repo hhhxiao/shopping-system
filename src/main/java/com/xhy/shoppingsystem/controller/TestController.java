@@ -1,10 +1,14 @@
 package com.xhy.shoppingsystem.controller;
 
+import com.xhy.shoppingsystem.mapper.ItemMapper;
 import com.xhy.shoppingsystem.pojo.Item;
+import com.xhy.shoppingsystem.service.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -56,4 +60,6 @@ public class TestController {
         }
         return items;
     }
+
+
 }

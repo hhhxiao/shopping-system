@@ -1,7 +1,7 @@
 package com.xhy.shoppingsystem.controller;
 
-import com.sun.media.jfxmedia.control.MediaPlayerOverlay;
-import com.xhy.shoppingsystem.mapper.ItemMapper;
+
+
 import com.xhy.shoppingsystem.pojo.Item;
 import com.xhy.shoppingsystem.service.ItemService;
 import org.slf4j.Logger;
@@ -11,9 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 
 @Controller
@@ -61,8 +60,21 @@ public class ItemController {
     @ResponseBody
     @PostMapping(value = "/delete")
     boolean deleteById(@RequestBody Item item) {
+
         return itemService.deleteItemById(item.getItemId());
     }
+
+    @ResponseBody
+    @PostMapping("/stock-modify")
+    public Boolean modify(@RequestBody Item item){//为啥不能直接将item传入？？？
+        Item item1=new Item();
+        item1.setItemId(item.getItemId());
+        item1.setStock(item.getStock());
+        System.out.println(item.getItemId());
+        System.out.println(item1);
+        return itemService.updateItemsInRepository(item1);
+    }
+
 
 
     /**

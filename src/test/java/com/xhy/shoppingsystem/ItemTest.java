@@ -57,9 +57,17 @@ public class ItemTest {
     @Test
     public void updateItemsInRepository(){
         Item item=new Item();
-        item.setItemId(2);
-        item.setStock(100);
+        item.setItemId(13);
+        item.setStock(1000);
         itemMapper.updateItemsInRepository(item);
 
+    }
+
+    @Test
+    public void updateItemSold(){
+        Item item=new Item();
+        item.setSold(500);
+        item.setItemId(10);
+        itemMapper.updateItemSold(item);
     }
 }

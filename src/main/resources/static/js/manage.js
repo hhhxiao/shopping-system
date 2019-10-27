@@ -1,5 +1,5 @@
 function item_html(item) {
-    return `<tr>
+    return `<tr id="${item.itemId}">
             <td>${item.itemId}</td>
             <td>${item.itemName}</td>
             <td>${item.price}</td>
@@ -7,7 +7,7 @@ function item_html(item) {
             <td>${item.sold}</td>
             <td>
                 <div class="ui input stock-modify">
-                <input type="text"   class="stock" value="${item.stock}">
+                <input type="text"   class="${item.itemId}" value="${item.stock}">
                 <button class="ui button icon stock-modify-button" onclick="stock(${item.itemId})">
                 <i class="icon check"></i>
                 </button>
@@ -21,6 +21,7 @@ function item_html(item) {
         </tr>`
 }
 
+
 function isEmpty(obj) {
     return typeof obj == "undefined" || obj == null || obj.trim() === "";
 }
@@ -30,12 +31,13 @@ function isEmpty(obj) {
 function stock(id) {
     alert("修改成功");
     $.ajax({
-        url: "/test/stock-modify",
+        url: "/item/stock-modify",
         type: "post",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify({
             'itemId': id,
+            'stock': $("."+id).val(),
         }),
         success:
             function (data) {
@@ -46,9 +48,8 @@ function stock(id) {
 
 //删除物品（下架）
 function manage(id) {
-    alert("删除成功" + id);
     $.ajax({
-        url: "/test/delete",
+        url: "/item/delete",
         type: "post",
         contentType: "application/json",
         dataType: "json",
@@ -57,7 +58,12 @@ function manage(id) {
         }),
         success:
             function (data) {
-                alert("删除成功" + id);
+                if(data){
+                    $("#"+id).remove();
+                    alert("删除成功" + id);
+                }else{
+                    alert("删除出错");
+                }
             }
     });
 }
@@ -145,4 +151,5 @@ $(document).ready(function () {
             $('#delete').val('删除物品');
         }
     });
+    $("")
 });

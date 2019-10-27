@@ -45,8 +45,13 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
-    public void updateItemsInRepository(Item item) {
-        itemMapper.updateItemsInRepository(item);
+    public boolean updateItemsInRepository(Item item) {
+        return itemMapper.updateItemsInRepository(item);
+    }
+
+    @Override
+    public void updateItemSold(Item item) {
+        itemMapper.updateItemSold(item);
     }
 
 

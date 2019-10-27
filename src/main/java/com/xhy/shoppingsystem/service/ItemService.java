@@ -14,5 +14,6 @@ public interface ItemService {
     boolean addItem(Item item);//管理员增加商品
     Item selectItemById(Integer id);//根据id查询物品
     boolean deleteItemById(Integer id);//管理员根据id删除商品
-    void updateItemsInRepository(Item item);//更新仓库库存
+    boolean updateItemsInRepository(Item item);//更新仓库库存
+    void updateItemSold(Item item);//购买后更新销售量
 }
