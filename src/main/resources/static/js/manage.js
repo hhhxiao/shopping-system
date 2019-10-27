@@ -125,6 +125,7 @@ $(document).ready(function () {
         success:
             function (data) {
                 data.forEach(function (item) {
+                    console.log(item);
                     $('#table-body').append(item_html(item));
                     $('.delete-button').hide();
                     $('#last-col').hide();

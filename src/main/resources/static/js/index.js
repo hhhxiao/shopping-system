@@ -11,6 +11,7 @@ function gene_card_html(item) {
 }
 
 $(document).ready(function () {
+
     $.ajax({
         url: "/item/all",
         type: "get",
@@ -18,6 +19,7 @@ $(document).ready(function () {
         success:
             function (data) {
                 data.forEach(function (item) {
+                    console.log(item);
                     $('#item-context').append(gene_card_html(item));
                 });
             }
@@ -36,6 +38,7 @@ $(document).ready(function () {
                     function (data) {
                         let html = "";
                         data.forEach(function (item) {
+                            console.log(item);
                             html += gene_card_html(item);
                         });
                         $('#item-context').html(html);
