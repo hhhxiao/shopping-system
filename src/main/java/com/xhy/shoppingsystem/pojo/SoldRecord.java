@@ -14,6 +14,7 @@ public class SoldRecord {
     private Timestamp soldTime;
     private Integer soldNum;
 
+
     public Integer getItemId() {
         return itemId;
     }
