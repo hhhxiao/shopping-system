@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "loginFilter", urlPatterns = {"/*"})
+@WebFilter(filterName = "loginFilter", urlPatterns = {
+        "/item/*","/index","manage","/id/*"})
 public class UserFilter implements javax.servlet.Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("filter is set!!!");
     }
+
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -24,9 +26,6 @@ public class UserFilter implements javax.servlet.Filter {
         if (user == null) {
             request.getRequestDispatcher("/login").forward(request, servletResponse);
         } else {
-            if (request.getRequestURI().contains("login")) {
-                request.getRequestDispatcher("/index").forward(request, servletResponse);
-            }
             if (user.getUserType() == 1 && request.getRequestURI().contains("manage")) {
                 request.getRequestDispatcher("/index").forward(request, servletResponse);
             }

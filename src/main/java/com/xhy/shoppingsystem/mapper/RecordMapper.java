@@ -1,7 +1,6 @@
 package com.xhy.shoppingsystem.mapper;
 
 
-import com.xhy.shoppingsystem.pojo.Item;
 import com.xhy.shoppingsystem.pojo.SoldRecord;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;

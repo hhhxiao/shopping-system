@@ -47,14 +47,11 @@ public class ItemController {
     }
 
 
-
-
     @ResponseBody
-    @GetMapping("/get")
-    Item getItem(HttpSession session) {
+    @PostMapping(value = "/get-id", produces = MediaType.APPLICATION_JSON_VALUE)
+    Item getItem(@RequestBody Item item) {
         //取得 session里面的id，查询数据然后返回
-        Integer id = (Integer) session.getAttribute("id");
-        return itemService.selectItemById(id);
+        return itemService.selectItemById(item.getItemId());
     }
 
 
