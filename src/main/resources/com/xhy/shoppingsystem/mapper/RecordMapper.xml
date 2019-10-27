@@ -7,7 +7,7 @@
         <id column="sold_id" property="soldId" jdbcType="INTEGER"/>
         <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
         <result column="item_id" property="itemId" jdbcType="INTEGER"/>
-        <result column="sold_time" property="soldTime"  jdbcType="DATE"/>
+        <result column="sold_time" property="soldTime"  jdbcType="TIMESTAMP"/>
         <result column="sold_num" property="soldNum" jdbcType="INTEGER"/>
     </resultMap>
     <!--    用户获取个人交易记录-->

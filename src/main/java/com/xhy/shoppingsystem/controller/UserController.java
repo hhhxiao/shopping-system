@@ -1,13 +1,13 @@
 package com.xhy.shoppingsystem.controller;
 
-import com.sun.prism.impl.Disposer;
+
 import com.xhy.shoppingsystem.pojo.Item;
 import com.xhy.shoppingsystem.pojo.SoldRecord;
 import com.xhy.shoppingsystem.pojo.User;
 import com.xhy.shoppingsystem.service.ItemService;
 import com.xhy.shoppingsystem.service.RecordService;
 import com.xhy.shoppingsystem.service.UserService;
-import org.hibernate.validator.constraints.ParameterScriptAssert;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -86,7 +87,7 @@ public class UserController {
             itemService.updateItemsInRepository(item);
             User user = (User) session.getAttribute("user");
             record.setUserEmail("test@qq.com");
-            record.setSoldTime(new Date());
+            record.setSoldTime(new Timestamp(System.currentTimeMillis()));
             recordService.addSoldRecord(record);
             System.out.println("success to by");
             return true;

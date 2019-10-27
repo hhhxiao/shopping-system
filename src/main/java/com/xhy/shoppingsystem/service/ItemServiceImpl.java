@@ -1,6 +1,7 @@
 package com.xhy.shoppingsystem.service;
 
 
+import com.xhy.shoppingsystem.mapper.ItemMapper;
 import com.xhy.shoppingsystem.pojo.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

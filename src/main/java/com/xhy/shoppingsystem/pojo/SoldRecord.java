@@ -2,14 +2,16 @@ package com.xhy.shoppingsystem.pojo;
 
 import org.apache.ibatis.type.Alias;
 
-import java.util.Date;
+
+import java.sql.Timestamp;
+
 
 @Alias("soldRecord")
 public class SoldRecord {
     private int soldId;
     private Integer itemId;
     private String userEmail;
-    private Date soldTime;
+    private Timestamp soldTime;
     private Integer soldNum;
 
     public Integer getItemId() {
@@ -28,11 +30,11 @@ public class SoldRecord {
         this.userEmail = userEmail;
     }
 
-    public Date getSoldTime() {
+    public Timestamp getSoldTime() {
         return soldTime;
     }
 
-    public void setSoldTime(Date soldTime) {
+    public void setSoldTime(Timestamp soldTime) {
         this.soldTime = soldTime;
     }
 
