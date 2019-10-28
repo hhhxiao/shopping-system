@@ -32,6 +32,14 @@ $(document).ready(function () {
     });
 
 
+    $('#record').click(function () {
+        window.location.href = "/record";
+    });
+    $('#logout').click(function () {
+        window.location.href = "/logout";
+    });
+
+
     $('#search').bind('keypress', function (event) {
         if (event.keyCode == "13") {
             var name = $('#search').val();

@@ -73,6 +73,13 @@ public class UserController {
         return userService.register(user);
     }
 
+    /**
+     * 购买的后端接口
+     *
+     * @param record  　前段传来的购买相关信息
+     * @param session 　session用来获取当前执行购买的用户的信息
+     * @return 返回是否购买成功
+     */
     @ResponseBody
     @PostMapping("/buy")
     public boolean buy(@RequestBody SoldRecord record, HttpSession session) {
@@ -80,17 +87,17 @@ public class UserController {
         //if the stock < nums to by
         System.out.println("a buy request");
         int currentStock = item.getStock();
-        if (currentStock < record.getSoldNum()) {
+        if (currentStock < record.getSoldNum() || record.getSoldNum() <= 0) {
             System.out.println("less stock");
             return false;
         } else {
-
             item.setStock(currentStock - record.getSoldNum());
             item.setSold(item.getSold() + record.getSoldNum());
             itemService.updateItemsInRepository(item);
             itemService.updateItemSold(item);
             User user = (User) session.getAttribute("user");
-            record.setUserEmail("test@qq.com");
+            assert (user != null);
+            record.setUserEmail(user.getUserEmail());
             record.setSoldTime(new Timestamp(System.currentTimeMillis()));
             recordService.addSoldRecord(record);
             System.out.println("success to by");

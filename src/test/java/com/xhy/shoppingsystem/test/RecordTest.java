@@ -1,4 +1,4 @@
-package com.xhy.shoppingsystem;
+package com.xhy.shoppingsystem.test;
 
 import com.alibaba.druid.sql.visitor.functions.Now;
 import com.xhy.shoppingsystem.mapper.RecordMapper;

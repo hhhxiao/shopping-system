@@ -1,4 +1,4 @@
-package com.xhy.shoppingsystem;
+package com.xhy.shoppingsystem.test;
 
 import com.xhy.shoppingsystem.mapper.ItemMapper;
 import com.xhy.shoppingsystem.pojo.Item;

@@ -19,12 +19,9 @@
         <h1>商城购物</h1>
     </div>
     <div class="profile">
-        <button class="ui primary button" id="record" onclick="function f() {
-          window.location.href = '/record';
-        }">交易记录</button>
-        <button class="ui button" id="quit" onclick="function f() {
-          window.location.href = '/logout';
-        }">退出登录</button>
+        <button class="ui button" id="index">主页</button>
+        <button class="ui primary button" id="record">交易记录</button>
+        <button class="ui button" id="logout">退出登录</button>
     </div>
 </div>
 <div class="ui divider"></div>
@@ -32,7 +29,6 @@
 
 <div class="main-content">
     <button class="ui button" id="add">添加商品</button>
-    <button class="ui button">交易记录</button>
     <button class="ui button" id="delete">编辑物品</button>
     <div class="ui  segment add-item" id="add-item">
         <div class="ui form">
@@ -50,7 +46,7 @@
                 <div class="three wide field">
                     <input id="item-stock" type="text" placeholder="库存">
                 </div>
-                <button  id="item-add-submit" class="  three wides  ui primary button">提交</button>
+                <button id="item-add-submit" class="  three wides  ui primary button">提交</button>
             </div>
         </div>
     </div>
@@ -59,13 +55,13 @@
     <table class="ui celled table">
         <thead>
         <tr>
-            <th>商品编号</th>
+            <th class="two wide">商品编号</th>
             <th>商品名称</th>
             <th>商品价格</th>
             <th>生产厂家</th>
             <th>已卖出</th>
-            <th>库存</th>
-            <th id="last-col"></th>
+            <th class="two wide">库存</th>
+            <th class="one wide" id="last-col"></th>
         </tr>
         </thead>
         <tbody id="table-body">

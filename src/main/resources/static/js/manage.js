@@ -75,14 +75,27 @@ $(document).ready(function () {
     $('#add').click(function () {
         if (b) {
             $('#add-item').show();
-            $(this).val("退出编辑");
+            $(this).text("退出编辑");
             b = false;
         } else {
             $('#add-item').hide();
-            $('#add').val("添加物品");
+            $('#add').text("添加物品");
             b = true;
         }
     });
+
+
+    $('#logout').click(function () {
+        window.location.href = "/logout";
+    });
+    $('#record').click(function () {
+        window.location.href = "/record";
+    });
+
+    $('#index').click(function () {
+        window.location.href="/index";
+    });
+
 
     //添加物品
     $('#item-add-submit').click(function () {
@@ -137,19 +150,21 @@ $(document).ready(function () {
     let a = true;
     $('#delete').click(function () {
         if (a) {
+            $('.stock-modify').addClass('action');
             $('.delete-button').show();
             $('#last-col').show();
             $('.stock').removeAttr('readonly', 'readonly');
             $('.stock-modify-button').show();
-            $('#delete').val('退出编辑');
+            $('#delete').text('退出编辑');
             a = false;
         } else {
+            $('.stock-modify').removeClass('action');
             $('#last-col').hide();
             $('.delete-button').hide();
             $('.stock-modify-button').hide();
             $('.stock').attr('readonly', 'readonly');
             a = true;
-            $('#delete').val('删除物品');
+            $('#delete').text('删除物品');
         }
     });
     $("")

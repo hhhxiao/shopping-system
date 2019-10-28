@@ -10,6 +10,11 @@ function gene_html(record) {
 }
 
 $(document).ready(function () {
+
+    $('#logout').click(function () {
+        window.location.href = "/logout";
+    });
+
     $.ajax({
         url: "/get-record",
         type: "get",

@@ -1,17 +1,12 @@
 package com.xhy.shoppingsystem.filter;
 
 import com.xhy.shoppingsystem.pojo.User;
-import org.springframework.stereotype.Component;
 
-import javax.jws.soap.SOAPBinding;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebFilter
 public class UserFilter implements javax.servlet.Filter {
@@ -45,7 +40,7 @@ public class UserFilter implements javax.servlet.Filter {
                 request.getRequestDispatcher("/login").forward(servletRequest, servletResponse);
             } else {
                 if (uri.startsWith("/manage") && user.getUserType() == 1) {
-                    request.getRequestDispatcher("/login").forward(servletRequest, servletResponse);
+                    request.getRequestDispatcher("/index").forward(servletRequest, servletResponse);
                 } else {
                     filterChain.doFilter(servletRequest, servletResponse);
                 }

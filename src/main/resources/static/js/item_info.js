@@ -18,6 +18,12 @@ $(document).ready(function () {
     console.log(id);
     let item;
 
+    $('#logout').click(function () {
+        window.location.href = "/logout";
+    });
+    $('#record').click(function () {
+       window.location.href = "/record"
+    });
 
     $.ajax({
 

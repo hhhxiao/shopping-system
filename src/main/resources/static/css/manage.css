@@ -18,10 +18,14 @@
     margin: 0 auto;
 }
 
-.stock-modify {
-    width: 60px;
-}
+/*.stock-modify {*/
+/*    width: 80px;*/
+/*}*/
 
-#last-col {
-    width: 60px;
+/*#last-col {*/
+/*    width: 60px;*/
+/*}*/
+
+input {
+    text-align: center;
 }
