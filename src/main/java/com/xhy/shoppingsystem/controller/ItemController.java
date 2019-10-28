@@ -1,7 +1,6 @@
 package com.xhy.shoppingsystem.controller;
 
 
-
 import com.xhy.shoppingsystem.pojo.Item;
 import com.xhy.shoppingsystem.service.ItemService;
 import org.slf4j.Logger;
@@ -46,7 +45,6 @@ public class ItemController {
     }
 
 
-
     @ResponseBody
     @PostMapping(value = "/get-id", produces = MediaType.APPLICATION_JSON_VALUE)
     Item getItem(@RequestBody Item item) {
@@ -64,15 +62,14 @@ public class ItemController {
 
     @ResponseBody
     @PostMapping("/stock-modify")
-    public Boolean modify(@RequestBody Item item){//为啥不能直接将item传入？？？
-        Item item1=new Item();
+    public Boolean modify(@RequestBody Item item) {//为啥不能直接将item传入？？？
+        Item item1 = new Item();
         item1.setItemId(item.getItemId());
         item1.setStock(item.getStock());
         System.out.println(item.getItemId());
         System.out.println(item1);
         return itemService.updateItemsInRepository(item1);
     }
-
 
 
     /**

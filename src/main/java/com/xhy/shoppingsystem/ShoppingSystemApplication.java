@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 
 @EnableTransactionManagement
 @SpringBootApplication
+@ServletComponentScan
 public class ShoppingSystemApplication {
 
     public static void main(String[] args) {

@@ -18,11 +18,17 @@ $(document).ready(function () {
         contentType: "application/json",
         success:
             function (data) {
+                console.log(data)
                 data.forEach(function (item) {
-                    console.log(item);
                     $('#item-context').append(gene_card_html(item));
                 });
-            }
+            },
+        complete: function (xhr, status) {
+            console.log("status" + status)
+        },
+        error: function () {
+            console.log("error!");
+        }
     });
 
 
