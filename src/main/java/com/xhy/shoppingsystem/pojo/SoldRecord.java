@@ -15,6 +15,14 @@ public class SoldRecord {
     private Integer soldNum;
 
 
+    public Integer getSoldId() {
+        return soldId;
+    }
+
+    public void setSoldId(Integer soldId) {
+        this.soldId = soldId;
+    }
+
     public Integer getItemId() {
         return itemId;
     }
