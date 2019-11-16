@@ -1,7 +1,7 @@
 function gene_card_html(item) {
     return `<div class="card">
 <div class="image">
-                <img src="../images/steve.jpg" alt="商品图片">
+                <img src="../images/item.png" alt="商品图片">
                 </div>
                     <div class="content">
                         <h5 class="ui red header">${item.price}元</h5>

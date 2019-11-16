@@ -22,15 +22,16 @@ public class RecordTest {
 
     @Test
     public void getAllPersonalSoldRecord(){
-        ArrayList<SoldRecord> allSoldRecord = recordMapper.getAllPersonalSoldRecord("hg@123");
+        ArrayList<SoldRecord> allSoldRecord =
+                recordMapper.getAllPersonalSoldRecord("root@qq.com");
         for (SoldRecord soldRecord : allSoldRecord) {
             System.out.println(soldRecord);
         }
     }
 
-    @Test
-    public void getAllSoldRecord(){
-        ArrayList<SoldRecord> allSoldRecord = recordMapper.getAllSoldRecord();
+    @Test    public void getAllSoldRecord(){
+        ArrayList<SoldRecord> allSoldRecord =
+                recordMapper.getAllSoldRecord();
         for (SoldRecord soldRecord : allSoldRecord) {
             System.out.println(soldRecord);
         }

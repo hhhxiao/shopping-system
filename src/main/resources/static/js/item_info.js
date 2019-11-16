@@ -22,7 +22,7 @@ $(document).ready(function () {
         window.location.href = "/logout";
     });
     $('#record').click(function () {
-       window.location.href = "/record"
+        window.location.href = "/record"
     });
 
     $.ajax({
@@ -48,23 +48,28 @@ $(document).ready(function () {
     $('#buy').click(function () {
         var count = $('#count').val();
         console.log(count);
-        $.ajax({
-            url: "/buy",
-            type: "post",
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify({
-                'itemId': id,
-                'soldNum': count
-            }),
-            success:
-                function (data) {
-                    if (data) {
-                        alert("购买成功");
-                    } else {
-                        alert("购买失败");
+        if (!isNaN(count) && count %1 === 0 && count > 0) {
+            $.ajax({
+                url: "/buy",
+                type: "post",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify({
+                    'itemId': id,
+                    'soldNum': count
+                }),
+                success:
+                    function (data) {
+                        if (data) {
+                            alert("购买成功");
+                        } else {
+                            alert("购买失败");
+                        }
                     }
-                }
-        });
-    });
+            });
+
+        }else {
+            alert("请输入正确的数字");
+        }
+   });
 });

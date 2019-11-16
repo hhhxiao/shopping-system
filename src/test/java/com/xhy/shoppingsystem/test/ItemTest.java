@@ -27,9 +27,10 @@ public class ItemTest {
 
     @Test
     public void selectItemsByName(){
-        ArrayList<Item> pens = itemMapper.selectItemsByName("pen");
-        for (Item pen : pens) {
-            System.out.println(pen);
+        ArrayList<Item> ipads =
+                itemMapper.selectItemsByName("ipad");
+        for (Item ipad : ipads) {
+            System.out.println(ipad);
         }
     }
 
@@ -37,7 +38,7 @@ public class ItemTest {
     public void addItem(){
         Item item=new Item();
         item.setItemName("phone");
-        item.setFactory("huaWei");
+        item.setFactory("vivo");
         item.setPrice(3000.0);
         item.setStock(50);
         System.out.println(itemMapper.addItem(item));
